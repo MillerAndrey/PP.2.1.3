@@ -1,0 +1,30 @@
+Index: src/main/java/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import org.springframework.context.ApplicationContext;\r\nimport org.springframework.context.annotation.AnnotationConfigApplicationContext;\r\n\r\npublic class App {\r\n    public static void main(String[] args) {\r\n        ApplicationContext applicationContext =\r\n                new AnnotationConfigApplicationContext(AppConfig.class);\r\n        HelloWorld bean =\r\n                (HelloWorld) applicationContext.getBean(\"helloworld\");\r\n        System.out.println(bean.getMessage());\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/App.java b/src/main/java/App.java
+--- a/src/main/java/App.java	(revision 886709bd9f9952cfb3ecac6f59ca708921f649b4)
++++ b/src/main/java/App.java	(date 1679922170831)
+@@ -5,8 +5,16 @@
+     public static void main(String[] args) {
+         ApplicationContext applicationContext =
+                 new AnnotationConfigApplicationContext(AppConfig.class);
+-        HelloWorld bean =
+-                (HelloWorld) applicationContext.getBean("helloworld");
++        HelloWorld bean = (HelloWorld) applicationContext.getBean("helloworld");
+         System.out.println(bean.getMessage());
++        System.out.println(bean2.getMessage());
++        Cat beanCat = (Cat) applicationContext.getBean("cat");
++        Cat beanCat2 = (Cat) applicationContext.getBean("cat");
++        System.out.println(beanCat.getMessage());
++        System.out.println(beanCat.getMessage());
++
++
++        System.out.println(bean == bean2);
++        System.out.println(beanCat == beanCat2);
+     }
+ }
+\ No newline at end of file
